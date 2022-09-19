@@ -1,4 +1,4 @@
-## Backend
+## APIs
 
 The complete project is dockerized.
 
@@ -8,9 +8,21 @@ Run the below commands to run docker image and start the project on local machin
 docker-compose build
 docker-compose up
 ```
+### .env
+First create a .env file inside the project directory.
+and add your secret key by using following lines of code:
+```
+from django.core.management.utils import get_random_secret_key
+print(get_random_secret_key())
+```
+This will generate a secret_key.
+<br>
+Or else add following in the .env file:
+```
+SECRET_KEY=2ns&e7w-89&=7^^v(mnzfqqx=i(^ytw20_327l3&^v*w1_^sju
+```
 
-
-Available endpoints to hit
+## Available endpoints to hit
 - <code><span class="text-uppercase">POST</span> /api/auth/generate-token/</code>  -> Takes a set of user credentials and returns an access and refresh JSON web
 token pair to prove the authentication of those credentials.
 JSON body:
@@ -37,6 +49,9 @@ token if the refresh token is valid. JSON body:
     "token": "token"
     }
     ```
+**All the APIs below can only be accessible using JWT token.**
+**To use them use the /api/auth/generate-token/ endpoint.**
+**And while calling these APIs use Header Authorization: JWT {{access_token}}**
 - <code><span class="text-uppercase">GET</span> /api/comapny/</code>  -> To fetch all the available companies. Can only work if the user is admin. It returns list of company objects. This endpoint requires admin permissions.
 
 - <code><span class="text-uppercase">POST</span> /api/company/</code>  -> To create a new company. Can only be work if the user is admin. This endpoint requires admin permissions. JSON body:
@@ -101,3 +116,5 @@ token if the refresh token is valid. JSON body:
 - <code><span class="text-uppercase">DELETE</span> /api/team/{id}/</code>  -> To delete the team with given team id.
 
 
+
+### All these APIs are also accessible using the Postman Collection availabele in the code directory or import the below JSON link: https://www.getpostman.com/collections/37d3e71f0f12b094e0ea

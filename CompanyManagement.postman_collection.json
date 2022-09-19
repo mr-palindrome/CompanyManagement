@@ -1,0 +1,266 @@
+{
+	"info": {
+		"_postman_id": "f3f07424-a5a0-48b2-9462-669be3a58c82",
+		"name": "CompanyManagement",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16223691"
+	},
+	"item": [
+		{
+			"name": "generate-token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\":\"admin\",\n    \"password\":\"admin\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/generate-token/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"generate-token",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "refresh-token",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "get-company-details",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "JWT {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "{{url}}/api/get-company-details/181d4ba0-7a97-493a-807f-8afe39224200/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"get-company-details",
+						"181d4ba0-7a97-493a-807f-8afe39224200",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-company (using comp name)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "JWT {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/get-company/Tech/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"get-company",
+						"Tech",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "company (CRUD)",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "JWT {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"company_name\": \"Techwondow-NZ\",\n    \"company_ceo\": \"Jaskaran Singh\",\n    \"company_address\": \"NZ\",\n    \"inception_Date\": \"2020-06-03\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/company/181d4ba0-7a97-493a-807f-8afe39224200/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"company",
+						"181d4ba0-7a97-493a-807f-8afe39224200",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-team (with Company)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "JWT {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/get-team/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"get-team",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "team (CRUD)",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "JWT {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"team_lead_name\": \"Mohammad Sageer\",\n    \"company\": \"181d4ba0-7a97-493a-807f-8afe39224200\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/team/e2f6ecb5-df7a-475d-bdab-81f5bedfdc94/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"team",
+						"e2f6ecb5-df7a-475d-bdab-81f5bedfdc94",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create-team (using comp ID)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "JWT {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"team_lead_name\":\"Mohammad Sageer\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/create-team/181d4ba07a97493a807f8afe39224200/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"create-team",
+						"181d4ba07a97493a807f8afe39224200",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://localhost:8000",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjYzNjIyMjkxLCJpYXQiOjE2NjM2MTg2OTEsImp0aSI6IjFhYjU5MzM4MjJhYTQ2MmI4NTQxZTFhMTdmNjhjNWY4IiwidXNlcl9pZCI6MX0.qN9Dom8ayevls9Zgw1uE_OxkJnNdPXckXvQ9KzQroEY",
+			"type": "string"
+		}
+	]
+}
