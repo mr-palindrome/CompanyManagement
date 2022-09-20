@@ -1,4 +1,9 @@
 ## APIs
+**The complete project is deployed on https://companymanagement.mr-palindrome.tech/**
+
+</br>
+
+### Start
 
 The complete project is dockerized.
 
@@ -22,7 +27,9 @@ Or else add following in the .env file:
 SECRET_KEY=2ns&e7w-89&=7^^v(mnzfqqx=i(^ytw20_327l3&^v*w1_^sju
 ```
 
+
 ## Available endpoints to hit
+**All the APIs are documented at https://localhost:8000/**
 - <code><span class="text-uppercase">POST</span> /api/auth/generate-token/</code>  -> Takes a set of user credentials and returns an access and refresh JSON web
 token pair to prove the authentication of those credentials.
 JSON body:
