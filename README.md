@@ -95,7 +95,7 @@ token if the refresh token is valid. JSON body:
 
 - <code><span class="text-uppercase">GET</span> /api/get-company/{name}/</code>  -> To get company details by company name.
 
-- <code><span class="text-uppercase">GET</span> /api/get-team/</code>  -> To get all teams available.
+- <code><span class="text-uppercase">GET</span> /api/get-team/</code>  -> To get all teams as an array grouped within company object.
 
 - <code><span class="text-uppercase">POST</span> /api/create-team/{id}/</code>  -> To create new team for the company with given company id. JSON body:
     ```
@@ -122,6 +122,15 @@ token if the refresh token is valid. JSON body:
 
 - <code><span class="text-uppercase">DELETE</span> /api/team/{id}/</code>  -> To delete the team with given team id.
 
+
+## Assignment requirements:
+
+The following requirements are accessible using adjacent api requests:
+- Create a Company: <code><span class="text-uppercase">POST</span> /api/company/</code> 
+- Create a Team (Should have company ID in path): <code><span class="text-uppercase">POST</span> /api/create-team/{id}/</code>
+- Get Company object from ID: <code><span class="text-uppercase">GET</span> /api/company/{id}/</code>
+- Search company by name: <code><span class="text-uppercase">GET</span> /api/get-company/{name}/</code>
+- Get All teams (Return all teams as an array grouped within company object): <code><span class="text-uppercase">GET</span> /api/get-team/</code> 
 
 
 ### All these APIs are also accessible using the Postman Collection availabele in the code directory or import the below JSON link: https://www.getpostman.com/collections/37d3e71f0f12b094e0ea
