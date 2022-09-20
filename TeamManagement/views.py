@@ -126,13 +126,14 @@ class CreateTeamByCompanyID(generics.CreateAPIView):
 
 class GetTeamByCompanyID(generics.ListAPIView):
     model = Team
+    serializer_class = CompanySerializer
     authentication_classes = [JWTAuthentication]
     permission_classes = [IsAuthenticated]
     queryset = team_query()
 
     def list(self, *args, **kwargs):
         queryset = company_query()
-        serializer = CompanySerializer(queryset, many=True)
+        serializer = self.serializer_class(queryset, many=True)
         company_data = serializer.data
         for query in queryset:
             team = self.queryset.filter(company=query)

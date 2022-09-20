@@ -17,9 +17,20 @@ from django.contrib import admin
 from django.urls import path, include, re_path
 
 from rest_framework import permissions
+from rest_framework.documentation import include_docs_urls
+from rest_framework.authentication import SessionAuthentication
+from rest_framework_simplejwt.authentication import JWTAuthentication
 
+
+api_documentation_view = include_docs_urls(
+    title='Company Management API',
+    public=False,
+    authentication_classes=(SessionAuthentication,),
+    permission_classes=(permissions.IsAdminUser,),
+)
 
 urlpatterns = [
+    path('', api_documentation_view, name='documentation'),
     path('admin/', admin.site.urls),
     path('api/', include('TeamManagement.urls'))
 ]
