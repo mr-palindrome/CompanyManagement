@@ -1,5 +1,11 @@
 ## APIs
 **The complete project is deployed on https://companymanagement.mr-palindrome.tech/**
+
+To access this you need to login as admin at https://companymanagement.mr-palindrome.tech/admin/ with following credentials:
+```
+username: admin
+password: admin
+```
 </br>
 
 ### Start
@@ -24,6 +30,13 @@ This will generate a secret_key.
 Or else add following in the .env file:
 ```
 SECRET_KEY=2ns&e7w-89&=7^^v(mnzfqqx=i(^ytw20_327l3&^v*w1_^sju
+```
+
+And add following database environment variables in that:
+```
+DB_HOST = 157.245.105.244
+DB_USER = remotenayan
+DB_PASSWORD = nayan
 ```
 
 **To access all the endpoints you can create your own user or use already exsisting user with admin access**
@@ -140,6 +153,11 @@ The following requirements are accessible using adjacent api requests:
 - Get Company object from ID: <code><span class="text-uppercase">GET</span> /api/company/{id}/</code>
 - Search company by name: <code><span class="text-uppercase">GET</span> /api/get-company/{name}/</code>
 - Get All teams (Return all teams as an array grouped within company object): <code><span class="text-uppercase">GET</span> /api/get-team/</code> 
+
+## Deployment
+The whole system is deployed on DigitalOcean Ubuntu system where I have used Apache2 server.
+
+The database is also live on ther server using PostgreSQL (PSQL). For which it is dynamic. Any changes done in localhost will reflect back to the doployment server.
 
 
 ### All these APIs are also accessible using the Postman Collection availabele in the code directory or import the below JSON link: https://www.getpostman.com/collections/37d3e71f0f12b094e0ea
